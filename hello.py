@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request, make_response, redirect, abort, urlfor
+from flask import Flask, render_template, request, make_response, redirect, abort, url_for
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 
