@@ -27,6 +27,7 @@ def index():
     return render_template('index.html', current_time=datetime.utcnow())
 
 
+
 @app.route('/')
 def index():
      return render_template('index.html', current_time=datetime.utcnow())
