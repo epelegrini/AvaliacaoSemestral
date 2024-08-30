@@ -14,7 +14,6 @@ def index():
     page = request.args.get('page')
     if page == 'nao-disponivel':
         return render_template('nao_disponivel.html')
-    return render_template('index.html', current_time=datetime.utcnow())
 
 @app.route('/cadastrar-aluno', methods=['GET', 'POST'])
 def cadastrar_aluno():
