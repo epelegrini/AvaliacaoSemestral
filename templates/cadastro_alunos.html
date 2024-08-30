@@ -1,1 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro de Alunos{% endblock %}
+
+{% block page_content %}
+<!-- Formulário de Cadastro de Alunos -->
+<form method="post" action="/cadastrar-aluno">
+    <div class="form-group">
+        <label for="nome">Cadastre o novo Aluno:</label>
+        <input type="text" class="form-control" id="nome" name="nome">
+    </div>
+    <div class="form-group">
+        <label for="disciplina">Disciplina associada:</label>
+        <select class="form-control" id="disciplina" name="disciplina">
+            <option value="DSWA5">DSWA5</option>
+            <option value="GPSA5">GPSA5</option>
+            <option value="IHCA5">IHCA5</option>
+            <option value="SODA5">SODA5</option>
+            <option value="PJIA5">PJIA5</option>
+            <option value="TCOA5">TCOA5</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-default">Cadastrar</button>
+</form>
+
+<!-- Tabela de Alunos Cadastrados -->
+<h2>Relação de alunos cadastrados</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Aluno</th>
+            <th>Disciplina</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.disciplina }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
 
