@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request, make_response, redirect, abort, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 
@@ -9,15 +9,12 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 alunos = []
 
-
 @app.route('/')
 def index():
     page = request.args.get('page', 'home')
     if page == 'nao-disponivel':
         return render_template('nao_disponivel.html')
     return render_template('index.html', current_time=datetime.utcnow())
-
-
 
 @app.route('/cadastrar-aluno', methods=['GET', 'POST'])
 def cadastrar_aluno():
@@ -27,7 +24,6 @@ def cadastrar_aluno():
         alunos.append({'nome': nome, 'disciplina': disciplina})
         return redirect(url_for('cadastrar_aluno'))
     return render_template('cadastro_alunos.html', alunos=alunos)
-
 
 @app.route('/listar-alunos')
 def listar_alunos():
