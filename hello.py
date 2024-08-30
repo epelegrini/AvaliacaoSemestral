@@ -19,11 +19,6 @@ def index():
 
 
 
-@app.route('/')
-def index():
-     return render_template('index.html', current_time=datetime.utcnow())
-
-
 @app.route('/cadastrar-aluno', methods=['GET', 'POST'])
 def cadastrar_aluno():
     if request.method == 'POST':
