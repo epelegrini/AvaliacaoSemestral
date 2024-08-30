@@ -34,9 +34,6 @@ def cadastrar_aluno():
         return redirect(url_for('cadastrar_aluno'))
     return render_template('cadastro_alunos.html', alunos=alunos)
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 
 @app.route('/listar-alunos')
 def listar_alunos():
