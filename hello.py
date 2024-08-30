@@ -41,15 +41,19 @@ def contextorequisicao(nome):
     host       = "{}".format(request.host);
     return render_template('contextorequisicao.html', nome=nome, agent=agent, ip=ip, host=host)
 
+
+
 @app.route('/cadastrar-aluno', methods=['GET', 'POST'])
 def cadastrar_aluno():
     if request.method == 'POST':
         nome = request.form['nome']
         disciplina = request.form['disciplina']
         alunos.append({'nome': nome, 'disciplina': disciplina})
-        return redirect(url_for('listar_alunos'))
-    return render_template('cadastro_alunos.html')
+        return redirect(url_for('cadastrar_aluno'))
+    return render_template('cadastro_alunos.html', alunos=alunos)
 
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 @app.route('/listar-alunos')
