@@ -19,6 +19,13 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
+@app.route('/')
+def index():
+    page = request.args.get('page', 'home')
+    if page == 'nao-disponivel':
+        return render_template('nao_disponivel.html')
+    return render_template('index.html', current_time=datetime.utcnow())
+
 
 @app.route('/')
 def index():
